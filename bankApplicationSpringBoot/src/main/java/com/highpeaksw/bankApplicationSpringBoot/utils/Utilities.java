@@ -1,4 +1,4 @@
-package com.highpeaksw.utils;
+package com.highpeaksw.bankApplicationSpringBoot.utils;
 
 import java.util.Random;
 import java.util.Scanner;

@@ -1,6 +1,4 @@
-package com.highpeaksw.accounts;
-
-import com.highpeaksw.customer.BankCustomer;
+package com.highpeaksw.bankApplicationSpringBoot.data;
 
 import javax.persistence.*;
 
@@ -8,22 +6,20 @@ import javax.persistence.*;
 @Entity
 @Table(name = "BankAccount")
 public class BankAccount {
-
     @Id
     @Column(name = "Account_Number", nullable = false)
-    public int accountNumber;
+    public Integer accountNumber;
 
     @Column(name = "User_Name", length = 50, nullable = false)
     public String userName;
-
-    @Column(name = "Password",length = 50, nullable = false)
+    @Column(name = "Password", length = 50, nullable = false)
     public String password;
 
-    @Column(name = "Account_Balance",nullable = false)
+    @Column(name = "Account_Balance", nullable = false)
     private double accountBalance;
 
-    @ManyToOne()
-    @JoinColumn(name = "customer_Id")
+    @ManyToOne
+    @JoinColumn(name = "customer_Id", referencedColumnName = "customer_Id")
     private BankCustomer customer;
 
     @Column(name = "Rate_Of_Interest")
@@ -32,7 +28,7 @@ public class BankAccount {
     @Column(name = "Recurring_Deposit_Count")
     private int rdCount;
 
-    @Column(name = "Account_Type", length = 100,nullable = false)
+    @Column(name = "Account_Type", length = 100, nullable = false)
     private String accountType;
 
     @Column(name = "Tenure")
@@ -42,18 +38,14 @@ public class BankAccount {
     private boolean isAccountActive;
 
 
-//    @Column(name = "account_Activation")
-//    private boolean isAccountActivated;
-
-
     @Column(name = "Recurring_Deposit_Amount")
     private double recurringDepositAmt;
 
-    public int getAccountNumber() {
+    public Integer getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(Integer accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -97,6 +89,14 @@ public class BankAccount {
         this.rateOfInterest = rateOfInterest;
     }
 
+    public int getRdCount() {
+        return rdCount;
+    }
+
+    public void setRdCount(int rdCount) {
+        this.rdCount = rdCount;
+    }
+
     public String getAccountType() {
         return accountType;
     }
@@ -113,23 +113,6 @@ public class BankAccount {
         this.tenure = tenure;
     }
 
-
-    public double getRecurringDepositAmt() {
-        return recurringDepositAmt;
-    }
-
-    public void setRecurringDepositAmt(double recurringDepositAmt) {
-        this.recurringDepositAmt = recurringDepositAmt;
-    }
-
-    public int getRdCount() {
-        return rdCount;
-    }
-
-    public void setRdCount(int rdCount) {
-        this.rdCount = rdCount;
-    }
-
     public boolean isAccountActive() {
         return isAccountActive;
     }
@@ -139,4 +122,12 @@ public class BankAccount {
     }
 
 
+
+    public double getRecurringDepositAmt() {
+        return recurringDepositAmt;
+    }
+
+    public void setRecurringDepositAmt(double recurringDepositAmt) {
+        this.recurringDepositAmt = recurringDepositAmt;
+    }
 }
