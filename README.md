@@ -1,5 +1,5 @@
-# JYL
 
 
 
-Basic bank Application realized using Java Hibernate and Mysql
+
+Basic bank Application realized using Java Spring boot and Mysql
