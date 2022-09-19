@@ -1,2 +1,2 @@
-# Bank-Application-Backend
-Spring boot bank application backend
+
+Basic bank Application realized using Java Spring boot and Mysql
